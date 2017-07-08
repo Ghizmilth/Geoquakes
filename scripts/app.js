@@ -10,7 +10,7 @@ $(document).ready(function() {
   //This is the function to get JSON data from earthquake data base
   $.ajax({
     method: 'GET',
-    url: 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2017-06-30%2000:00:00&endtime=2017-07-07%2023:59:59&minmagnitude=2.5&orderby=time',
+    url: 'https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2017-07-01%2000:00:00&endtime=2017-07-08%2023:59:59&minmagnitude=4.5&orderby=time',
     dataType: 'json',
     success: onSuccess
   });
