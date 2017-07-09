@@ -2,6 +2,9 @@
 var weekly_quakes_endpoint = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson";
 
 
+var mapLatLngBoth = {};
+//var locations = {};
+
 //This section waits until the page is loaded
 $(document).ready(function() {
   console.log("Let's get coding!");
@@ -26,41 +29,21 @@ function onSuccess(qData) {
 
   qData.features.forEach(function(itemName) {
     $("#info").append(`<p>${itemName.properties.title}</p>`)
-    //console.log(itemName.properties.title);
   })
 
-  //The first earthquake info to the map only
-  //We get the latitud of the earthquake first
+    }
 
-  //function showTest(str) {
-      //other code
-  //    return {arr: arrayvals, tm: arrtime};
-  //}
-
-  //var func_result = showTest("blah-blah");
-  //var testvar =func_result.tm;
-  //var testvar2=func_result.arr;
-
-
-
-  var lat = qData.features["0"].geometry.coordinates[1];
-  //console.log(latMap);
-  var lng = qData.features["0"].geometry.coordinates[0];
-  //console.log(lngMap);
-  var latLngTogether = {lat, lng};
-  console.log(latLngTogether);
-}
 
 
 
 //This section loads the map into the page
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
+    zoom: 1,
     center: {
-      lat: 10.654451,
-      lng: -71.714795
-    }
+        lat: 10.654451,
+        lng: -71.714795
+      }
   });
 
   // Create an array of alphabetical characters used to label the markers.
@@ -79,12 +62,9 @@ function initMap() {
 
   // Add a marker clusterer to manage the markers.
   var markerCluster = new MarkerClusterer(map, markers, {
-    imagePath: 'images/m'
+    imagePath: 'images/earthquake.png'
   });
 }
 
 
-var locations = [{
-  lat: 10.654451,
-  lng: -71.714795
-}]
+var locations = [{lat: -7.4516, lng: 105.9556}];
